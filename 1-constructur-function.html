@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constructur Function</title>
+  </head>
+  <body>
+    <script>
+      function Person(name) {
+        // property
+        this.name = name;
+
+        // method
+        this.greeting = function (yourName) {
+          return `Hello ${yourName}, my name is ${this.name}`;
+        };
+      }
+
+      //    person1 dan person2 adalah object dan akan memiliki property dan method yang sama dari Person
+      var person1 = new Person();
+      person1.name = "John Doe";
+      document.writeln(person1.name);
+      document.writeln("<br>");
+      document.writeln(person1.greeting("Tom Wilson"));
+      document.writeln("<br>");
+
+      var person2 = new Person();
+      /*   
+        Bisa langsung seperti ini meskipun tidak mendeklarasikan
+        property pada constructor function seperti property name 
+       */
+      person2.age = 25;
+      document.writeln(person2.age);
+
+      document.writeln("<br>");
+
+      //   Constructor function bisa ditambahkan parameter
+      var person3 = new Person("Bob Smith");
+      document.writeln(person3.name);
+      document.writeln("<br>");
+      document.writeln(person3.greeting("Jane Doe"));
+      document.writeln("<br>");
+
+      //   Constructor function inheritance
+      function User() {
+        this.username = "Guest";
+        // Dengan begini artinya semua property dan method yang ada di Person akan diturunkan ke User
+        Person.call(this);
+      }
+
+      var user1 = new User();
+      user1.name = "John Doe User";
+      document.writeln(user1.username);
+      document.writeln("<br>");
+      document.writeln(user1.name);
+      document.writeln("<br>");
+      document.writeln(user1.greeting("Jane Doe User"));
+    </script>
+  </body>
+</html>
