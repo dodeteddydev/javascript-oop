@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Getter Setter</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(name) {
+          this.name = name;
+        }
+
+        get greeting() {
+          return `Hello ${this.name}`;
+        }
+
+        set greeting(value) {
+          this.name = value;
+        }
+      }
+
+      const person = new Person("John Doe");
+      document.writeln(person.greeting);
+      document.writeln("<br>");
+      person.greeting = "Bob Smith";
+      document.writeln(person.greeting);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Private Field</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        greeting(name) {
+          if (name) {
+            return this.#grettingWithName(name);
+          } else {
+            return this.#greetingWithoutName();
+          }
+        }
+
+        // Private method
+
+        #grettingWithName(name) {
+          return `Hello ${name}!`;
+        }
+
+        #greetingWithoutName() {
+          return `Hello, anonymous!`;
+        }
+      }
+
+      const person = new Person();
+      document.writeln(person.greeting("John Doe"));
+      document.writeln("<br>");
+      document.writeln(person.greeting());
+
+      // Private method tidak bisa diakses di luar class
+      // document.writeln(person.#grettingWithName(name)); atau document.writeln(person.#greetingWithoutName()); maka akan error
+    </script>
+  </body>
+</html>

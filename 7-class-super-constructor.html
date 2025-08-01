@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Super Constructor</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(age) {
+          this.age = age;
+        }
+
+        greeting(yourName) {
+          return `Hello my name is ${yourName}!. I'm ${this.age} years old.`;
+        }
+      }
+
+      class User extends Person {
+        // Saat ingin membuat constructor baru maka object turunan harus memanggil constructor induk
+        constructor(hobby, age) {
+          super(age);
+          this.hobby = hobby;
+        }
+      }
+
+      const person = new Person(40);
+      document.writeln(person.greeting("John Doe"));
+
+      document.writeln("<br>");
+
+      const user = new User("Coding", 25);
+      document.writeln(user.greeting("Bob Smith"));
+      document.writeln("<br>");
+      document.writeln(user.hobby);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Method</title>
+  </head>
+  <body>
+    <script>
+      // Best practicenya method harus menjadi instance prototype bukan instance objectnya
+      class Person {
+        constructor(name) {
+          this.name = name;
+          // Jangan buat method di constructor function
+        }
+
+        greeting(yourName) {
+          return `Hello ${yourName}, my name is ${this.name}`;
+        }
+      }
+
+      const person = new Person("John Doe");
+      document.writeln(person.name);
+      document.writeln("<br>");
+      document.writeln(person.greeting("Bob Smith"));
+    </script>
+  </body>
+</html>

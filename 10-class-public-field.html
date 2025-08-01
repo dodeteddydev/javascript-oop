@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Public Field</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        // Public field
+        name = "John Doe";
+        age;
+        hobby;
+
+        // Bisa mengubah public field dengan constructor
+        constructor(age, hobby) {
+          this.age = age;
+          this.hobby = hobby;
+        }
+      }
+
+      const person = new Person();
+      document.writeln(person.name);
+      document.writeln("<br>");
+      document.writeln(person.age);
+      document.writeln("<br>");
+      document.writeln(person.hobby);
+
+      document.writeln("<br>");
+
+      const person2 = new Person(25, "Coding");
+      document.writeln(person2.name);
+      document.writeln("<br>");
+      document.writeln(person2.age);
+      document.writeln("<br>");
+      document.writeln(person2.hobby);
+    </script>
+  </body>
+</html>

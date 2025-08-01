@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Private Field</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        // Private field
+        #counter = 0;
+
+        increment() {
+          this.#counter++;
+        }
+
+        decrement() {
+          this.#counter--;
+        }
+
+        get counter() {
+          return this.#counter;
+        }
+      }
+
+      const person = new Person();
+      person.increment();
+      person.increment();
+      person.increment();
+      person.increment();
+      person.increment();
+      document.writeln(person.counter);
+      document.writeln("<br>");
+      person.decrement();
+      person.decrement();
+      document.writeln(person.counter);
+
+      // Private field tidak bisa diakses di luar class
+      // document.writeln(person.#counter); maka akan error
+    </script>
+  </body>
+</html>

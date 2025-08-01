@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Super Method</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        greeting(yourName) {
+          return `Hello my name is ${yourName}!`;
+        }
+      }
+
+      class User extends Person {
+        sayHello(name) {
+          // super juga bisa digunakan untuk mengakses method greeting di class induk
+          // Jadi seolah-olah sayHello adalah method greeting yang ada di class Person
+          return super.greeting(name);
+        }
+      }
+
+      const user = new User();
+      document.writeln(user.sayHello("John Doe"));
+    </script>
+  </body>
+</html>

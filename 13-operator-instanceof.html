@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Instanceof</title>
+  </head>
+  <body>
+    <script>
+      /* operator instanceof digunakan untuk mengecek apakah suatu 
+        object merupakan instance dari class tertentu dan akan mengembalikan 
+        nilai true atau false */
+      class Person {}
+      class User extends Person {}
+      class Hobby {}
+
+      const person = new Person();
+      const user = new User();
+      const hobby = new Hobby();
+      document.writeln(person instanceof Person); // true
+      document.writeln("<br>");
+      document.writeln(person instanceof User); // false
+      document.writeln("<br>");
+      document.writeln(user instanceof User); // true
+      document.writeln("<br>");
+      document.writeln(user instanceof Hobby); // false
+      document.writeln("<br>");
+      document.writeln(user instanceof Person); // true
+      document.writeln("<br>");
+      document.writeln(hobby instanceof Hobby); // true
+      document.writeln("<br>");
+      document.writeln(hobby instanceof Person); // false
+    </script>
+  </body>
+</html>
