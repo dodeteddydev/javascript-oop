@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Class Error</title>
+  </head>
+  <body>
+    <script>
+      // Membuat custom error
+      class ValidationError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = "ValidationError";
+        }
+      }
+      class Say {
+        static hello(name) {
+          if (name?.length < 3) {
+            throw new Error("Error: Name must be at least 3 characters");
+          }
+
+          if (!name) {
+            // Penggunaan custom error
+            throw new ValidationError("Name is required", "ValidationError");
+          }
+
+          return `Hello ${name}`;
+        }
+      }
+
+      try {
+        document.writeln(Say.hello());
+      } catch (error) {
+        if (error instanceof ValidationError) {
+          document.writeln(`${error.name}: ${error.message}`);
+        } else {
+          document.writeln(error.message);
+        }
+      }
+    </script>
+  </body>
+</html>

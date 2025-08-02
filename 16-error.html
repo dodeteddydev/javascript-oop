@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+  </head>
+  <body>
+    <script>
+      class Say {
+        static hello(name) {
+          if (!name) {
+            throw new Error("Name is required");
+          }
+
+          return `Hello ${name}`;
+        }
+      }
+
+      // Maka akan error dan code di bawah tidak akan dijalankan
+      document.writeln(Say.hello());
+
+      // Tidak akan dijalankan karena error
+      document.writeln(Say.hello("John Doe"));
+    </script>
+  </body>
+</html>

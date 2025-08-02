@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Handling</title>
+  </head>
+  <body>
+    <script>
+      class Say {
+        static hello(name) {
+          if (!name) {
+            throw new Error("Name is required");
+          }
+
+          return `Hello ${name}`;
+        }
+      }
+
+      try {
+        document.writeln(Say.hello());
+      } catch (error) {
+        // Karena akan error maka catch akan dijalankan
+        document.writeln(error.message);
+      } finally {
+        // Akan selalu dijalankan mau error atau tidak
+        document.writeln("<br>");
+        document.writeln("Finally");
+      }
+
+      // Akan tetap dijalankan karena sudah ada catch untuk menangani error
+      document.writeln("<br>");
+      document.writeln(Say.hello("John Doe"));
+    </script>
+  </body>
+</html>
